@@ -1,7 +1,11 @@
-const openai = require('openai');
+//const openai = require('openai');
+const OpenAI = require("openai");
 require('dotenv').config();
 
-const generateResponse = async (input) => {
+const openai = new OpenAI({
+  api_key: process.env.OPENAI_API_KEY
+});
+/*const generateResponse = async (input) => {
   const prompt = `The following is a conversation with an AI assistant. The assistant helps you with your tasks and answers your questions. \n\nYou: ${input}\nAI:`;
   const completions = await openai.completions.create({
     engine: 'davinci',
@@ -13,8 +17,8 @@ const generateResponse = async (input) => {
   });
   const response = completions.choices[0].text.trim();
   return response;
-};
+};*/
 
 module.exports = {
-  generateResponse
+  openai
 };

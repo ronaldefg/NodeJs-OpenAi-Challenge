@@ -8,6 +8,7 @@ const validateInput = (input) => {
   if (input.length > 1024) {
     throw new Error('Input must be less than or equal to 1024 characters');
   }
+  return input;
 };
 
 module.exports = {
