@@ -15,7 +15,6 @@ describe("POST /chat", () => {
     }
     it("test for check if has response", async () => {
         const response = await request(baseURL).post("/chat").send(okChat);
-        console.log(response.body);
         expect(response.statusCode).toBe(200);
         expect(response.body.response).toBeDefined();
     });
