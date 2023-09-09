@@ -10,10 +10,11 @@ app.use(express.json());
 
 app.post('/chat', async (req, res) => {
   try {
-    console.log(req.body);
     const { input } = req.body;
-    const validInput = validateInput(input);
-    if (!validInput) {
+    let validInput;
+    try {
+      validInput = validateInput(input);
+    } catch (error) {
       return res.status(400).json({ error: 'Invalid input' });
     }
     const response = await generateResponse(validInput);
